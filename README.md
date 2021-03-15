@@ -60,21 +60,21 @@ By using a significance level of 95%, meaning that 95% of the time this tests re
 
 Here is a breakdown of each of the four tests:
 
-All Three Lots Combined Test
+### All Three Lots Combined Test
 ![image](https://user-images.githubusercontent.com/74282781/111117528-dee81280-8524-11eb-9e74-0cc33408cd91.png)
 
 
-Lot 1 Test
+### Lot 1 Test
 
 ![image](https://user-images.githubusercontent.com/74282781/111117588-f4f5d300-8524-11eb-8e1a-aee91a306a85.png)
 
 
-Lot 2 Test
+### Lot 2 Test
 
 ![image](https://user-images.githubusercontent.com/74282781/111117619-ff17d180-8524-11eb-8dbb-d09fd88818ab.png)
 
 
-Lot 3 Test
+### Lot 3 Test
 
 ![image](https://user-images.githubusercontent.com/74282781/111117643-08a13980-8525-11eb-8009-c8220b61d500.png)
 
@@ -96,6 +96,7 @@ We can test the hypotheses using two-sample t-Test. To visualise the analysis, w
 We can also use linear regression- where the dependent variable is the fuel efficiency and the independent variable is the class.
 
 What data is needed to run the statistical test?
+
 Data from the files provided to us in this module (CSV) can be used. JSON files from opensources like 
 https://www.epa.gov/compliance-and-fuel-economy-data/data-cars-used-testing-fuel-economy
 
@@ -105,7 +106,4 @@ We would need a dichotomous data type. Data must contain - highway , city mileag
 
 
 
-The metrics I want to test are city and highway fuel efficiencies.
-Null Hypothesis is that all of the cars in the same class have the same fuel efficienies. THe Alternative Hypothesis is that they are not all the same.
-I would use an ANOVA test to complete this analysis for both types of fuel efficiencies. Also I would use the ggplot2 library to show the potential spread between different cars using a boxplot.
-I would need fuel efficiency data from 50 individual cars to create a sample size of data for each car in the class type. For example, if there was 10 cars in the class type, I would have a top of 500 data points collected for each fuel efficiency type.
+
