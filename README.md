@@ -7,7 +7,7 @@ MechaCar_MPG data - csv file
 Suspension coil data -csv file
 R and R studio -dpylr library
 
-## Deliverable 1
+## Linear Regression to Predict MPG
 After loading the miles per gallon dataset,we preformed a multiple linear regression to see if it could predict the miles per gallon (mpg) dependent variable by using the vehicle length, vehicle weight, spoiler angle, ground clearance, and all wheel drive (AWD) independent variables. By doing this, we wanted to answer three questions:
 
 Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
@@ -28,54 +28,82 @@ Miles Per Gallon Linear Regression
 ![image](https://user-images.githubusercontent.com/74282781/111115939-83b52080-8522-11eb-81ff-f22b9e7cbc3e.png)
 
 
-Summary Statistics on Suspension Coils
+## Summary Statistics on Suspension Coils
+
 In this section, I loaded in the suspension coils dataset. It was comprised of 150 different vehicles ID, 3 different lot numbers, and corresponding PSI levels for each vehicle. From there I created two summary tables to look at the mean, median, variance, and standard deviation of data. The first table looked at of the data as a whole, while the second table looked specific at each of the three different lots that the MechaCars were divided into. Here are the two tables.
 
+### Total Summary Table
 
-
-Total Summary Table
 ![image](https://user-images.githubusercontent.com/74282781/111116274-04741c80-8523-11eb-9582-bcbaf216959d.png)
 
-total_sum_sus_coils
 
-Lot Summary Table
-lot_sum_sus_coils
+ ### Lot Summary Table 
+![image](https://user-images.githubusercontent.com/74282781/111116432-41401380-8523-11eb-8ef6-a5767cfae720.png)
 
-By completing this analysis I want to answer one question:
+
+By completing this analysis we can answer this question :
 
 The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? Why or why not?
-The answer to this question is:
 
-Looking at the total summary, the current variance is approximately 76.23 PSI meaning that is does meet the design specification. When looking at the lots individuals, the first two lotas meet the design specification at a varaince of approximately 1.14 PSI and 10.13 PSI respectfully, but the third lot does not. This is becasue the third lot's variance is approximately 220.01 PSI, exceeding the design specification by more than double the alotted amount. Therefore, the manufacturing team should work with the cars in lots 1 and 2 compared to those in lot 3.
-T-Tests on Suspension Coils
-In this section, I wanted to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch. In order to do this, I used R's t.test() function to find four different p-values. The question that I wanted to answer by doing this was:
+Looking at the total summary, the current variance is approximately 76.23 PSI, which means that the design specification IS MET. When looking at the lots individuals, the first two lots  DOES meet the design specification at a varaince of approximately 1.14 PSI and 10.13 PSI respectfully, but the third lot DOES NOT. The lot 3 variance of ~ 220.01 PSI exceeds the design specification by almost double. Therefore, the manufacturing team should work with the cars in lots 1 and 2 compared to those in lot 3.
 
-Do any of the four groups have a statistically different mean from the population mena of 1,500 PSI?
-The answer to this question is:
+## T-Tests on Suspension Coils
 
-By using a significance level of 95%, meaning that 95% of the time this tests results would be true, I tested to see if any of the four groups had a statistical difference from the mean of 1,500 PSI. After running the tests, all four p-values where much greater than .05 meaning that I would fail to reject that there is a statistical difference between the four groups and the population mean.
+We wanted to determine if all manufacturing lots and each lot individually are statistically different from the population mean of 1,500 pounds per square inch.We used R's t.test()function to find four different p-values. 
+
+Question:
+Do any of the four groups have a statistically different mean from the population meam of 1,500 PSI?
+
+Answer:
+
+By using a significance level of 95%, meaning that 95% of the time this tests results would be true, we tested to see if any of the four groups had a statistical difference from the mean of 1,500 PSI. After running the tests, all four p-values where much greater than .05 which means we would fail to reject that THERE IS a statistical difference between the four groups and the population mean.
+
 Here is a breakdown of each of the four tests:
 
 All Three Lots Combined Test
-total_pop_test
+![image](https://user-images.githubusercontent.com/74282781/111117528-dee81280-8524-11eb-9e74-0cc33408cd91.png)
+
 
 Lot 1 Test
-1_pop_test
+
+![image](https://user-images.githubusercontent.com/74282781/111117588-f4f5d300-8524-11eb-8e1a-aee91a306a85.png)
+
 
 Lot 2 Test
-2_pop_test
+
+![image](https://user-images.githubusercontent.com/74282781/111117619-ff17d180-8524-11eb-8dbb-d09fd88818ab.png)
+
 
 Lot 3 Test
-3_pop_test
 
-Study Design: MechaCar vs Competition
-In this section, I am comparing how the MechaCar performs with the competition. I am not preforming any tests in R, I am talking about how I would go about completing this analysis. In order to do this I want to answer four different questions which are:
+![image](https://user-images.githubusercontent.com/74282781/111117643-08a13980-8525-11eb-8009-c8220b61d500.png)
+
+
+## Study Design: MechaCar vs Competition
+
+Using the Resources we can also compare how the MechaCar performs with the competition. At this time, we wont use R studio but can walk through the process of completeing other analyses. Our four main questions are 
 
 What metric or metrics are you going to test?
+
+I think the consumer could potentially be interested in year of the car and city and highway fuel efficiency
+
 What is the null hypothesis or alternative hypothesis?
+Null Hyptothesis - All cars made before 2008 have same city and highway fuel efficiency
+Alternate Hypothesis - All cars made before 2008 DO NOT have the same city and highway fuel efficiency
+
 What statistical test would you use to test the hypothesis? And why?
+We can test the hypotheses using two-sample t-Test. To visualise the analysis, we can use ggplot2 library and boxplot. It would show us the outliers, cars in the 25th and 75th percentiles and median.
+We can also use linear regression- where the dependent variable is the fuel efficiency and the independent variable is the class.
+
 What data is needed to run the statistical test?
-The answer to these questions are:
+Data from the files provided to us in this module (CSV) can be used. JSON files from opensources like 
+https://www.epa.gov/compliance-and-fuel-economy-data/data-cars-used-testing-fuel-economy
+
+We would need a dichotomous data type. Data must contain - highway , city mileage, and year the car was made.
+
+
+
+
 
 The metrics I want to test are city and highway fuel efficiencies.
 Null Hypothesis is that all of the cars in the same class have the same fuel efficienies. THe Alternative Hypothesis is that they are not all the same.
